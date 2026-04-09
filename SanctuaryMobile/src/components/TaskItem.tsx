@@ -7,10 +7,16 @@ import { Task } from '../types';
 interface TaskItemProps {
   task: Task;
   onToggle: (id: string) => void;
+  onDelete?: (id: string) => void;
   variant?: 'default' | 'history' | 'compact';
 }
 
-export default function TaskItem({ task, onToggle, variant = 'default' }: TaskItemProps) {
+export default function TaskItem({ task, onToggle, onDelete, variant = 'default' }: TaskItemProps) {
+  const handleLongPress = () => {
+    if (onDelete) {
+      onDelete(task.id);
+    }
+  };
   if (variant === 'history') {
     return (
       <View style={styles.historyCard}>
@@ -54,6 +60,7 @@ export default function TaskItem({ task, onToggle, variant = 'default' }: TaskIt
       <TouchableOpacity 
         style={[styles.checkbox, task.completed && styles.checkboxActive]}
         onPress={() => onToggle(task.id)}
+        onLongPress={handleLongPress}
       >
         {task.completed && <Check size={14} color="white" strokeWidth={4} />}
       </TouchableOpacity>

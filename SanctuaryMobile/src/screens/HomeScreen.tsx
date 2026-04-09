@@ -8,6 +8,7 @@ import { Task } from '../types';
 interface HomeScreenProps {
   tasks: Task[];
   onToggleTask: (id: string) => void;
+  onDeleteTask: (id: string) => void;
   onSeeAll: () => void;
 }
 
@@ -41,7 +42,13 @@ export default function HomeScreen({ tasks, onToggleTask, onSeeAll }: HomeScreen
       </View>
       
       {activeTasks.slice(0, 3).map(task => (
-        <TaskItem key={task.id} task={task} onToggle={onToggleTask} variant="compact" />
+        <TaskItem 
+          key={task.id} 
+          task={task} 
+          onToggle={onToggleTask} 
+          onDelete={onDeleteTask}
+          variant="compact" 
+        />
       ))}
     </View>
   );

@@ -8,6 +8,7 @@ import { Task } from '../types';
 interface TasksScreenProps {
   tasks: Task[];
   onToggleTask: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 }
 
 export default function TasksScreen({ tasks, onToggleTask }: TasksScreenProps) {
@@ -39,7 +40,12 @@ export default function TasksScreen({ tasks, onToggleTask }: TasksScreenProps) {
       </View>
 
       {activeTasks.map(task => (
-        <TaskItem key={task.id} task={task} onToggle={onToggleTask} />
+        <TaskItem 
+          key={task.id} 
+          task={task} 
+          onToggle={onToggleTask} 
+          onDelete={onDeleteTask}
+        />
       ))}
     </View>
   );

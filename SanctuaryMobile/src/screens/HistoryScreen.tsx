@@ -7,6 +7,7 @@ import { Task } from '../types';
 interface HistoryScreenProps {
   tasks: Task[];
   onToggleTask: (id: string) => void;
+  onDeleteTask: (id: string) => void;
 }
 
 export default function HistoryScreen({ tasks, onToggleTask }: HistoryScreenProps) {
@@ -36,7 +37,13 @@ export default function HistoryScreen({ tasks, onToggleTask }: HistoryScreenProp
       </View>
 
       {completedTasks.map(task => (
-        <TaskItem key={task.id} task={task} onToggle={onToggleTask} variant="history" />
+        <TaskItem 
+          key={task.id} 
+          task={task} 
+          onToggle={onToggleTask} 
+          onDelete={onDeleteTask}
+          variant="history" 
+        />
       ))}
 
       <View style={styles.finishContainer}>
