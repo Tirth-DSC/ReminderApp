@@ -1,0 +1,8 @@
+apply plugin: "com.android.application"
+apply plugin: "com.facebook.react"
+
+android {
+    namespace "com.sanctuary"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    // ... rest of gradle config
+}
