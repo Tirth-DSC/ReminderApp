@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-manrope: "Manrope", sans-serif;
+  
+  --color-surface: #f7f5ff;
+  --color-surface-container: #e4e7ff;
+  --color-surface-container-low: #efefff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #dde1ff;
+  --color-surface-container-highest: #d5dbff;
+  
+  --color-primary: #0058bb;
+  --color-primary-container: #6c9fff;
+  --color-on-primary: #f0f2ff;
+  
+  --color-secondary: #495f69;
+  --color-on-secondary: #e4f5ff;
+  
+  --color-tertiary: #883c93;
+  --color-on-tertiary: #ffeefb;
+  
+  --color-on-surface: #232c51;
+  --color-on-surface-variant: #515981;
+  
+  --color-outline: #6c759e;
+  --color-outline-variant: #a2abd7;
+  
+  --color-error: #b31b25;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-manrope antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl;
+  }
+  
+  .editorial-shadow {
+    box-shadow: 0 20px 50px rgba(35, 44, 81, 0.05);
+  }
+  
+  .primary-gradient {
+    background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+  }
+}
